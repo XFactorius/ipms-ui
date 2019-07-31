@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Table, Container} from 'reactstrap';
+//import { Table} from 'reactstrap';
+//import AppNavbar from './AppNavbar';
+import { Container} from 'reactstrap';
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
 import AppNavbar from './AppNavbar';
 
 export default class Incident extends Component {
@@ -19,35 +23,28 @@ export default class Incident extends Component {
 
   render() {
     const {incidents, isLoading} = this.state;
+    const data = incidents;
 
     if (isLoading) {
       return <p>Loading...</p>;
     }
 
-    return (
-        <div>
-        <AppNavbar/>
-        <Container fluid>
-        <Table>
-            <thead>
-                <tr>
-                    <th>Incident Name</th>
-                    <th>Incident Date</th>
-                </tr>
-            </thead>
+     const columns = [{
+        Header: 'Name',
+        accessor: 'name',
+        filterable: true
+      }, {
+        Header: 'Date',
+        accessor: 'startDate'
+        }]
 
-            <tbody>
-            {incidents.map(incident =>
-                <tr>
-                    <td> {incident.name} </td>
-                    <td> {incident.startDate} </td>
-                </tr>
-            )}
-            </tbody>
-        </Table>
+       return <div><AppNavbar/><Container fluid><ReactTable
+          data={data}
+          columns={columns}
+          showPagination={false}
+        />
         </Container>
         </div>
-    )
   }
 }
 
