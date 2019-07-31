@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 //import { Table} from 'reactstrap';
 //import AppNavbar from './AppNavbar';
-import { Container} from 'reactstrap';
+import { Container, Button} from 'reactstrap';
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import AppNavbar from './AppNavbar';
+import { Link } from 'react-router-dom';
 
 export default class Incident extends Component {
   state = {
@@ -38,7 +39,9 @@ export default class Incident extends Component {
         accessor: 'startDate'
         }]
 
-       return <div><AppNavbar/><Container fluid><ReactTable
+       return <div><AppNavbar/><Container fluid>
+       <Button color="link"><Link to="/create">New incident</Link></Button>
+       <ReactTable
           data={data}
           columns={columns}
           showPagination={false}
