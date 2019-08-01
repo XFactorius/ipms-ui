@@ -9,6 +9,7 @@ export default class NewIncident extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.nameChange = this.nameChange.bind(this);
     this.dateChange = this.dateChange.bind(this);
+    this.cancel = this.cancel.bind(this);
     this.state = {
        name: "",
        startDate: "",
@@ -38,6 +39,10 @@ export default class NewIncident extends React.Component {
       this.setState({startDate: date.target.value});
    }
 
+   cancel() {
+      this.props.history.push("/incidents");
+   }
+
   render() {
     return <div><AppNavbar/>
     <Container>
@@ -50,7 +55,8 @@ export default class NewIncident extends React.Component {
            <Label for="date" className="mr-sm-2">Date</Label>
            <Input type="date" name="date" id="date" placeholder="Incident date" onChange={this.dateChange}/>
          </FormGroup>
-         <Button onClick={this.handleSubmit}>Submit</Button>
+         <Button color="primary" onClick={this.handleSubmit}>Submit</Button>
+         <Button color="danger" onClick={this.cancel}>Cancel</Button>
       </Form>
       </Container>
       </div>
