@@ -19,7 +19,6 @@ export default class NewIncident extends React.Component {
       event.preventDefault();
 
       const data = JSON.stringify({name: this.state.name, startDate: this.state.startDate})
-
       fetch('http://localhost:8080/api/v1/incidents', {
         method: 'POST',
         body: data ,
@@ -27,6 +26,8 @@ export default class NewIncident extends React.Component {
           'Content-Type': 'application/json',
           },
       });
+
+      this.props.history.push("/incidents");
     }
 
    nameChange (name) {

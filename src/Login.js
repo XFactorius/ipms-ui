@@ -10,13 +10,18 @@ class Login extends Component {
   }
 
   render() {
-
+    const responseGoogle = (response) => {
+      if (response.isSignedIn()) {
+        this.setState({isLoggedIn: true});
+        this.props.history.push("/home");
+      }
+    }
+  
     return <Container>
       <GoogleLogin
         clientId="888470619238-6o95gggm4et485mon8dvtimi6ilri9ua.apps.googleusercontent.com"
         buttonText="Login"
-        uxMode='redirect'
-        redirectUri="http://localhost:3000/home"
+        onSuccess={responseGoogle}
         cookiePolicy={'single_host_origin'} />
     </Container>
   }
