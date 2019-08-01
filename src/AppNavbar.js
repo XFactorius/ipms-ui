@@ -16,7 +16,7 @@ export default class AppNavbar extends Component {
   }
 
   render() {
-    return <Container fluid><Navbar expand="md">
+    return <Container><Navbar expand="md">
       <NavbarBrand tag={Link} to="/">IPMS</NavbarBrand>
       <NavbarToggler onClick={this.toggle}/>
         <Nav className="ml-auto" navbar>

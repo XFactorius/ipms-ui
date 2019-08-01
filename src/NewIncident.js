@@ -39,7 +39,7 @@ export default class NewIncident extends React.Component {
 
   render() {
     return <div><AppNavbar/>
-    <Container fluid>
+    <Container>
       <Form inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Label for="name" className="mr-sm-2">Email</Label>

@@ -39,7 +39,7 @@ export default class Incident extends Component {
         accessor: 'startDate'
         }]
 
-       return <div><AppNavbar/><Container fluid>
+       return <div><AppNavbar/><Container>
        <Button color="link"><Link to="/create">New incident</Link></Button>
        <ReactTable
           data={data}
